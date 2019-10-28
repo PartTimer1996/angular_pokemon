@@ -1,0 +1,13 @@
+<h1>Check details and stats on the coolest items!</h1>
+
+  <h2 > Browse below to view more information about your favourite ones.</h2>
+<mat-list class="items" id="items">
+  <h4><div class="list-header">Items List:</div></h4>
+  <ng-container *ngFor="let item of items | slice:0:9">
+    <mat-list-item class ="items" >
+      <a> {{item.name.english}} </a>
+      <!--        <button type="submit" (click)="removePokemon(pokemon)">X</button>-->
+    </mat-list-item>
+  </ng-container>
+ <h4> <div class="list-footer">See Full List</div></h4>
+</mat-list>

@@ -1,0 +1,112 @@
+@media screen and (min-width: 1200px) {
+  .content {
+    display: grid;
+    grid-template-columns: 5fr 3fr 1fr;
+    grid-template-areas: "info ad ." "info featured ." "footer footer footer";
+  }
+  .secondary-head {
+    display: none;
+  }
+  .main-nav {
+    display: none;
+  }
+}
+@media (min-width: 800px) and (max-width: 1199px) {
+  .content {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas: "info ad" "info featured" "footer footer";
+  }
+  .main-head {
+    display: none;
+  }
+}
+@media (max-width: 799px) {
+  .content {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-areas: "info" "ad" "featured" "footer";
+  }
+  .main-head {
+    display: none;
+  }
+}
+.info {
+  grid-area: info;
+  margin: auto;
+  padding: 15px;
+}
+.ad {
+  grid-area: ad;
+  margin: auto;
+}
+.featured {
+  grid-area: featured;
+  margin: auto;
+}
+.main-footer {
+  grid-area: footer;
+  margin: auto;
+}
+span {
+  margin: auto;
+}
+span :hover {
+  color: #039be5;
+}
+span .topnav a {
+  color: white;
+}
+.sidenav {
+  color: black;
+  display: inline-block;
+  line-height: 30px;
+  margin: 0;
+  width: 85%;
+}
+:visited {
+  color: #334953;
+}
+:link {
+  color: #334953;
+}
+.active {
+  background-color: honeydew;
+}
+h1 {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+h2 {
+  font-size: 2em;
+  margin: 10px;
+}
+.icon {
+  display: inline-block;
+  height: 30px;
+  margin: 0 auto;
+  padding-right: 15px;
+  text-align: center;
+  color: #ffffff;
+  vertical-align: middle;
+  width: 15%;
+}
+.label {
+  display: inline-block;
+  line-height: 30px;
+  color: #ffffff;
+  margin: 0;
+  width: 85%;
+}
+.main-footer {
+  align-content: center;
+  margin-top: 250px;
+  text-align: center;
+}
+mat-list-item span {
+  color: white;
+  margin-left: 5px;
+}
+mat-list-item mat-icon {
+  color: white;
+}

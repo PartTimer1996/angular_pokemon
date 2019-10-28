@@ -1,0 +1,65 @@
+.pokemon-search {
+  margin: 25px 15px 15px 15px;
+}
+.list-footer {
+  margin: 0px 0 15px 0;
+}
+.list-header {
+  margin: 15px 0 10px 0;
+}
+ul {
+  display: inline-block;
+}
+.pokemon {
+  margin: 0 250px 0px 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+}
+.pokemon li {
+  position: relative;
+  cursor: pointer;
+  background-color: #eee;
+  margin: 0 25px 0 0;
+  padding: 0.3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  text-decoration: underline;
+}
+.pokemon li:hover {
+  color: #607d8b;
+  background-color: #ddd;
+  left: 0.1em;
+}
+.pokemon a:hover {
+  color: #607d8b;
+}
+.pokemon .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #405061;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  min-width: 16px;
+  text-align: right;
+  margin-right: 0.8em;
+  border-radius: 4px 0 0 4px;
+}
+.text-green {
+  color: green;
+}
+.text-blue {
+  color: blue;
+}
+.text-red {
+  color: red;
+}
+h2 {
+  font-size: 18px;
+}

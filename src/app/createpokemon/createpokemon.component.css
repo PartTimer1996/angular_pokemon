@@ -1,0 +1,18 @@
+button {
+  margin-top: 25px;
+}
+.has-danger {
+  border-color: red;
+}
+.has-success {
+  border-color: green;
+}
+form {
+  width: 50%;
+}
+mat-form-field {
+  width: 80%;
+}
+.mat-select-value {
+  background-color: black;
+}

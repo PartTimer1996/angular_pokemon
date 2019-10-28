@@ -1,0 +1,108 @@
+<h1>Create your own Pokemon!</h1>
+<p>Please enter below details of the pokemon you wish to create and please make them valid. Thanks!</p>
+<form
+  (ngSubmit)="onSubmit(name.value, type.value, SpAttack.value, Defense.value, HP.value, Speed.value, SpAttack.value, Attack.value)"
+  #f="ngForm" novalidate>
+  <h2>Details:</h2>
+  <div class="form-group">
+    <!-- <label for="Name">Pokemon Name</label> -->
+    <mat-form-field class = "topfield">
+        <mat-label>Pokemon Name</mat-label>
+    <input matInput placeholder="Pokemon Name"  name="name" [(ngModel)]="model.name"
+    #name="ngModel" required minlength="3"
+    [ngClass]="{'has-success' : name.valid && name.dirty, 'has-danger' : name.invalid && name.dirty}">
+    <div class="invalid-feedback" *ngIf="name.invalid && name.dirty">
+      Please enter a name
+    </div>
+  </mat-form-field>
+  </div>
+      <mat-form-field class = "topfield">
+          <mat-label>Pokemon Type</mat-label>
+      <mat-select style="background-color:#303030"   placeholder="Fire" class="form-control" type="type" name="type" [(ngModel)]="model.type" #type="ngModel" required
+      [ngClass]="{'has-success' : type.valid && type.dirty, 'has-danger' : type.invalid && type.dirty}" multiple>
+        <mat-option *ngFor="let type of pokeTypes" [value]="type">{{type}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  <fieldset ngModelGroup="Base">
+  <div class="form-group">
+    <h2>Base Stats:</h2>
+    <div class="form-row">    
+      <mat-form-field class="stats" >
+        <mat-label>SpDefense</mat-label>
+    <input matInput placeholder="1-99"  name="SpDefense"
+    [(ngModel)]="model.SpDefense" #SpDefense="ngModel" required pattern="^(0?[1-9]|[1-9][0-9])$"
+    [ngClass]="{'has-success' : SpDefense.valid && SpDefense.dirty, 'has-danger' : SpDefense.invalid && SpDefense.dirty}">
+    <div class="invalid-feedback" *ngIf="SpDefense.invalid && SpDefense.dirty">
+        Please enter a number between 1-99.
+    </div>
+  </mat-form-field>
+    
+  </div>
+ <div class="form-group"> 
+        <mat-form-field  class="stats" >
+          <mat-label>Defense</mat-label>
+      <input matInput placeholder="1-99"  name="Defense"
+      [(ngModel)]="model.Defense" #Defense="ngModel" required pattern="^(0?[1-9]|[1-9][0-9])$"
+      [ngClass]="{'has-success' : Defense.valid && Defense.dirty, 'has-danger' : Defense.invalid && Defense.dirty}">
+      <div class="invalid-feedback" *ngIf="Defense.invalid && Defense.dirty">
+          Please enter a number between 1-99.
+      </div>
+    </mat-form-field>
+      </div>
+      <div class="form-group"> 
+          <mat-form-field  class="stats" >
+            <mat-label>Attack</mat-label>
+        <input matInput placeholder="1-99"  name="Attack"
+        [(ngModel)]="model.Attack" #Attack="ngModel" required pattern="^(0?[1-9]|[1-9][0-9])$"
+        [ngClass]="{'has-success' : Attack.valid && Attack.dirty, 'has-danger' : Attack.invalid && Attack.dirty}">
+        <div class="invalid-feedback" *ngIf="Attack.invalid && Attack.dirty">
+            Please enter a number between 1-99.
+        </div>
+      </mat-form-field>
+        </div>
+        <div class="form-group"> 
+            <mat-form-field  class="stats" >
+              <mat-label>HP</mat-label>
+          <input matInput placeholder="1-99"  name="HP"
+          [(ngModel)]="model.HP" #HP="ngModel" required pattern="^(0?[1-9]|[1-9][0-9])$"
+          [ngClass]="{'has-success' : HP.valid && HP.dirty, 'has-danger' : HP.invalid && HP.dirty}">
+          <div class="invalid-feedback" *ngIf="HP.invalid && HP.dirty">
+              Please enter a number between 1-99.
+          </div>
+        </mat-form-field>
+          </div>
+          <div class="form-group"> 
+              <mat-form-field  class="stats" >
+                <mat-label>Speed</mat-label>
+            <input matInput placeholder="1-99"  name="Speed"
+            [(ngModel)]="model.Speed" #Speed="ngModel" required pattern="^(0?[1-9]|[1-9][0-9])$"
+            [ngClass]="{'has-success' : Speed.valid && Speed.dirty, 'has-danger' : Speed.invalid && Speed.dirty}">
+            <div class="invalid-feedback" *ngIf="Speed.invalid && Speed.dirty">
+                Please enter a number between 1-99.
+            </div>
+          </mat-form-field>
+            </div>
+            <div class="form-group"> 
+                <mat-form-field  class="stats" >
+                  <mat-label>SpAttack</mat-label>
+              <input matInput placeholder="1-99"  name="SpAttack"
+              [(ngModel)]="model.SpAttack" #SpAttack="ngModel" required pattern="^(0?[1-9]|[1-9][0-9])$"
+              [ngClass]="{'has-success' : SpAttack.valid && SpAttack.dirty, 'has-danger' : SpAttack.invalid && SpAttack.dirty}">
+              <div class="invalid-feedback" *ngIf="SpAttack.invalid && SpAttack.dirty">
+                  Please enter a number between 1-99.
+              </div>
+            </mat-form-field>
+              </div>
+    </div>
+  </fieldset>
+  <div class="col-md-3 mb-3">
+      <button mat-raised-button color="primary" type="submit" [disabled]="f.invalid">Create Pokemon</button>
+    </div>
+</form>
+
+
+<!-- 
+<div class="container">
+  <h2>Your Submission Details: </h2>
+  <pre>{{f.value | json}}</pre>
+</div> -->

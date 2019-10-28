@@ -1,0 +1,17 @@
+form {
+  margin: 5rem auto 0 auto;
+  width: 75%;
+}
+button {
+  margin-top: 15px;
+  width: 50%;
+}
+.has-success {
+  border-color: green;
+}
+.has-danger {
+  border-color: red;
+}
+input {
+  margin-top: 10px;
+}

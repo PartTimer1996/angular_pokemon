@@ -1,0 +1,125 @@
+  <nav class="main-head">
+  <mat-toolbar color = "primary">
+    <mat-toolbar-row color="primary" >
+          <span>
+            <a style="color:white;" [routerLink]="['']" > 
+            Pokemon Application </a>
+          </span>
+          <span>
+              <a class = "topnav" routerLink="Dashboard">
+                <mat-icon class="icon">dashboard</mat-icon>
+                <span class="label">Dashboard</span>
+              </a>
+            </span>
+            <span>
+                <a class = "topnav" [routerLink]="['/Create']">
+                  <mat-icon class="icon">send</mat-icon>
+                  <span class="label">Create</span>
+                </a>
+              </span>
+              <span>
+              <a class = "topnav" [routerLink]="['/ItemSearch']">
+                  <mat-icon class="icon">list</mat-icon>
+                  <span class="label">Item Search</span>
+                </a>
+              </span>
+              <span>
+                <a class = "topnav" [routerLink]="['/PokemonSearch']">
+                  <mat-icon class="icon">toc</mat-icon>
+                  <span class="label">Pokemon Search</span>
+                </a>
+              </span>
+              <span>
+                  <a class = "topnav" routerLink="/Login">
+                    <mat-icon class="icon">input</mat-icon>
+                    <span class="label">Login</span>
+                  </a>
+                </span>
+                <span>         
+                  <a class = "topnav" routerLink="#">
+                    <mat-icon class="icon">input</mat-icon>
+                    <span class="label">Logout</span>
+                  </a>
+                </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</nav>
+    <header class = "secondary-head">
+    <mat-toolbar  color= "primary">
+    <mat-toolbar-row>
+      <span>
+        <button mat-button mat-icon-button mat-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+      </span>
+        <span>
+            <a style = "color: white" [routerLink]="['']" routerLinkActive="router-link-active" >
+            Pokemon!
+          </a>
+        </span>
+        <span>{{ title }}</span>
+
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </header>
+
+  <mat-sidenav-container>
+      <mat-sidenav style="width:50%" #sidenav [(opened)]="opened" mode="over" >
+        <mat-nav-list>
+        <mat-list-item>
+              <a   [routerLink]="['']" 
+              routerLinkActive="router-link-active"> 
+             <span> Pokemon Application </span></a>
+            </mat-list-item>
+            <mat-list-item>
+                <a  routerLink="Dashboard">
+                  <mat-icon>dashboard</mat-icon>
+                  <span >Dashboard</span>
+                </a>
+              </mat-list-item>
+              <mat-list-item>
+                  <a  [routerLink]="['/Create']">
+                    <mat-icon>send</mat-icon>
+                    <span >Create</span>
+                  </a>
+                </mat-list-item>
+                <mat-list-item>
+                <a [routerLink]="['/ItemSearch']">
+                    <mat-icon >list</mat-icon>
+                    <span >Item Search</span>
+                  </a>
+                </mat-list-item>
+                <mat-list-item>
+                  <a  [routerLink]="['/PokemonSearch']">
+                    <mat-icon >toc</mat-icon>
+                    <span >Pokemon Search</span>
+                  </a>
+                </mat-list-item>
+                <mat-list-item>
+                    <a  routerLink="/Login">
+                      <mat-icon>input</mat-icon>
+                      <span >Login</span>
+                    </a>
+                  </mat-list-item>
+                  <mat-list-item>         
+                    <a routerLink="#">
+                      <mat-icon>input</mat-icon>
+                      <span>Logout</span>
+                    </a>
+                  </mat-list-item>
+          </mat-nav-list>
+      </mat-sidenav>
+
+      <mat-sidenav-content class="content">
+          <article class="info">
+              <router-outlet></router-outlet>
+            </article>
+            <div style="grid-area: featured;" class="featured">
+                <h3>Today's featured pokemon!</h3>
+              </div>
+              <div class="ad"><h4>Detective Pikachu out now</h4>
+                <img src="https://i.ebayimg.com/images/g/UkQAAOSwwXRcvwcN/s-l300.jpg" alt="">
+              </div>
+              <mat-toolbar class="main-footer" color="primary">
+                  <span>Ryan Duffy 2019</span>
+                </mat-toolbar>
+                  </mat-sidenav-content>
+    </mat-sidenav-container>

@@ -1,0 +1,16 @@
+<h1>Pokemon Search!</h1>
+<p>Search for your favourite Pokemon and click to see more details</p>
+<h4>Search Below</h4>
+<div class="pokemon-search">
+<input #pokebox id="pokeSearch" placeholder="E.g. Bulbasasur"  (input)="search(pokebox.value)"/>
+</div>
+<div class="loading" *ngIf="Loading"> 
+    <mat-spinner></mat-spinner> </div>
+
+<div class="pokemon-search-results">
+  <ul class="pokemon">
+    <li  *ngFor="let pokemon of pokemons$ | async">
+      <a [routerLink]="['/Pokemon/', pokemon.id]" >{{ pokemon.name}}</a>
+    </li>
+  </ul>
+</div>

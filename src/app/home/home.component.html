@@ -1,0 +1,28 @@
+<mat-tab-group>
+<mat-tab class = "pokemon" label="Pokemon"><h1>Check details and stats on your favourite Pokemon!</h1>
+
+      <h2 > Browse below to view more information about your favourite Pokemon!</h2>
+      <mat-list class="pokemon" id="pokemon" >
+        <h4 class="list-header">OG pokemon list:</h4>
+        <ng-container *ngFor="let pokemon of pokemons | slice:0:9">
+            <mat-list-item class ="pokemon" *ngIf="pokemon.type != null" >
+              <a
+                  [ngClass]="{'text-green': pokemon.type.toString().indexOf('Grass') > -1,
+              'text-red': pokemon.type.toString().indexOf('Fire') > -1,
+              ' text-blue': pokemon.type.toString().includes('Water')}" [routerLink]="['../Pokemon/', pokemon.id]">
+              {{pokemon.name}} </a>
+      <!--        <button type="submit" (click)="removePokemon(pokemon)">X</button>-->
+            </mat-list-item>
+        </ng-container>
+        <div class="list-footer">
+          <h4>  <a [routerLink]="['../FullList']">
+          See Full List </a>
+        </h4>
+        </div>
+      </mat-list> 
+    </mat-tab>
+    <mat-tab label="Items">   <app-items></app-items> </mat-tab>
+  </mat-tab-group>
+
+
+

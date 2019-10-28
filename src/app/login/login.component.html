@@ -1,0 +1,30 @@
+<form #f="ngForm" novalidate class="form-signin" (ngSubmit)="onSubmit()">
+    <img class="mb-4" src="https://cdn.bulbagarden.net/upload/thumb/2/21/001Bulbasaur.png/250px-001Bulbasaur.png" alt=""
+        width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <div class="form-group"> 
+                <mat-form-field  class="email" >
+                        <mat-label>email</mat-label>
+                    <input matInput placeholder="rduffy14@example.com"  name="email"
+                    [(ngModel)]="model.email" #email="ngModel" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+                    [ngClass]="{'has-success' : email.valid && email.dirty, 'has-danger' : email.invalid && email.dirty}">
+                    <div class="invalid-feedback" *ngIf="email.invalid && email.dirty">
+                        Enter a valid email
+                    </div>
+                  </mat-form-field >
+                <mat-form-field  class="password" >
+                  <mat-label>Password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" placeholder="6 characters or longer"  name="password"
+              [(ngModel)]="model.password" #password="ngModel" required minlength="6"
+              [ngClass]="{'has-success' : password.valid && password.dirty, 'has-danger' : password.invalid && password.dirty}">
+              <div class="invalid-feedback" *ngIf="password.invalid && password.dirty">
+                  Password must be longer than 6 characters
+              </div>
+            </mat-form-field>
+              </div>
+    <button mat-raised-button type="submit" [disabled]="f.invalid" color="primary">Sign in</button>
+</form>
+<h4 *ngIf="success === false">
+    Invalid Username or password, please try again.
+</h4>
+<!-- pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" -->

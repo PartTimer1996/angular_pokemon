@@ -1,0 +1,24 @@
+<h1>Check details and stats on your favourite Pokemon!</h1>
+
+<h2> Current Full listing</h2>
+<div class="pokemon-list" appCccardhover>
+<ul class="pokemon"  >
+  <div class="list-header"></div>
+  <ng-container *ngFor="let pokemon of pokemons">
+      <li  *ngIf="pokemon.type != null"
+        [ngClass]="{
+        'text-green': pokemon.type.toString().indexOf('Grass') > -1,
+        'text-red': pokemon.type.toString().indexOf('Fire') > -1,
+        'text-blue': pokemon.type.toString().includes('Water'),
+        'text-yellow': pokemon.type.toString().includes('Electric'),
+        'text-purple': pokemon.type.toString().includes('Poison'),
+        'text-greenish': pokemon.type.toString().indexOf('Bug') > -1,
+        'text-boring': pokemon.type.toString().indexOf('Normal') > -1}">
+        <a [routerLink]="['../Pokemon/', pokemon.id]">
+        {{pokemon.name}}:  </a> {{ pokemon.type }}
+<!--        <button type="submit" (click)="removePokemon(pokemon)">X</button>-->
+      </li>
+  </ng-container>
+</ul>
+</div>
+
