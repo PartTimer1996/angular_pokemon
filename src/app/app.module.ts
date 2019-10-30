@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PokemonSearchComponent } from './pokemon-search/pokemon-search.component';
 import { ItemSearchComponent } from './item-search/item-search.component';
+import { RegisterComponent } from './register/register.component';
 
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 import { CreatepokemonComponent } from './createpokemon/createpokemon.component';
@@ -25,6 +26,13 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MaterialModule} from './material-module';
+import { environment } from '../environments/environment';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { FirebaseauthService } from '../app/Services/firebaseauth.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +48,8 @@ import {MaterialModule} from './material-module';
     PokemonlistComponent,
     CccardhoverDirective,
     LoginComponent,
-    AdminComponent
+    AdminComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -57,9 +66,15 @@ import {MaterialModule} from './material-module';
     MatSliderModule,
     MatMenuModule,
     MatSidenavModule,
-    MaterialModule
+    MaterialModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule
   ],
-  providers: [],
+  providers: [
+    FirebaseauthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

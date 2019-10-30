@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { User } from '../_interfaces/user';
-import { LoginService } from '../Services/login.service';
+import { User } from '../Models/user';
 import { Router } from '@angular/router';
+
+import { FirebaseauthService } from '../Services/firebaseauth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,20 +11,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  constructor( private router: Router, private authService: FirebaseauthService) { }
    model: User = new User();
    success: boolean;
    isSubmitted  =  false;
    hide = true;
    @ViewChild('f', {static: false}) form: any;
-  constructor(private authService: LoginService, private router: Router) { }
+  
 
     ngOnInit() {
       this.hide = true;
     }
-    onSubmit() {
-      console.log(this.form.value);
-      this.isSubmitted = true;
-      this.authService.login(this.form.value);
-      this.router.navigateByUrl('/Admin');
+    login(email, password) {
+      this.authService.firebaseLogin(email, password);
     }
 }

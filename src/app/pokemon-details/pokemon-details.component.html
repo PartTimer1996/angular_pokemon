@@ -1,12 +1,12 @@
 
-<div class="nopaddi">
+<div>
   <h1 >{{ pokemon.name }} !</h1>
     <h4>Name:</h4>
     <p> {{ pokemon.name }} </p>
     <h4>Type:</h4>
     <input [(ngModel)] = "pokemon.type">
     <h4>HP: </h4>
-    <input [(ngModel)]="pokemon.base.HP">
+    <!-- <input [(ngModel)]="pokemon.base.HP"> -->
     <p><a [routerLink]="['./stats']" routerLinkActive="router-link-active">See More Stats Here</a></p>
   <div style="margin: 15px" class = "buttons">
       <button  mat-raised-button color="warn" class="back" (click)="goBack()">Back</button>

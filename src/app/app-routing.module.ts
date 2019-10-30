@@ -9,8 +9,10 @@ import {PokemonDetailsComponent} from './pokemon-details/pokemon-details.compone
 import {CreatepokemonComponent} from './createpokemon/createpokemon.component';
 import { PokemonstatsComponent } from './pokemonstats/pokemonstats.component';
 import { PokemonlistComponent } from '../app/pokemonlist/pokemonlist.component';
-import { LoginComponent } from './login/login.component';
 import { AdminComponent } from '../app/admin/admin.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from '../app/login/login.component';
+
 
 const routes: Routes = [
   {path: 'Pokemon', component: HomeComponent, data: { title: 'Home' } },
@@ -22,9 +24,10 @@ const routes: Routes = [
   {path: 'Create', component: CreatepokemonComponent , data: { title: 'Create' }},
   {path: 'stats', component: PokemonstatsComponent , data: { title: 'Stats' }},
   {path: 'FullList', component: PokemonlistComponent, data: { title: 'List' }},
-  {path: 'Login', component: LoginComponent, data: { title: 'Login' }},
   {path: 'Admin', component: AdminComponent, canActivate: [AuthGuard], data: { title: 'Admin' }},
   {path: 'Dashboard', component: HomeComponent, data: { title: 'Home' }},
+  {path: 'Login', component: LoginComponent, data: { title: 'Login' }},
+  {path: 'Register', component: RegisterComponent, data: { title: 'Register' }},
   {path: '**', component: HomeComponent}
 ];
 

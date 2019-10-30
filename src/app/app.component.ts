@@ -3,7 +3,9 @@ import { LoginService } from './Services/login.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import {MediaMatcher} from '@angular/cdk/layout';
-
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import {filter, map, tap, mergeMap} from 'rxjs/operators';
 
@@ -13,13 +15,7 @@ import {filter, map, tap, mergeMap} from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy  {
-  constructor(private authService: LoginService, private router: Router,
-              private activatedRoute: ActivatedRoute, private titleService: Title,
-              changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-  this.mobileQuery = media.matchMedia('(max-width: 600px)');
-  this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-  this.mobileQuery.addListener(this._mobileQueryListener);
-               }
+  items: Observable<any[]>;
   opened: boolean;
   place: string;
   showFiller = false;
@@ -28,8 +24,19 @@ export class AppComponent implements OnInit, OnDestroy  {
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
 
+  constructor(private authService: LoginService, private router: Router,
+              private activatedRoute: ActivatedRoute, private titleService: Title,
+              changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, db: AngularFirestore
+              )
+  {
+  this.mobileQuery = media.matchMedia('(max-width: 600px)');
+  this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+  this.mobileQuery.addListener(this._mobileQueryListener);
+  // How to simply work with a firestore db and pull live data from it.
+  // this.items = db.collection('items').valueChanges();
+  }
+
   ngOnInit() {
-    this.checkStatus();
     this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd),
       map(() => this.activatedRoute),
@@ -57,18 +64,10 @@ export class AppComponent implements OnInit, OnDestroy  {
           mergeMap((route) => route.data))
           .subscribe(
             (event) => this.title = this.titleService.getTitle());
-  }
-  checkStatus() {
-    if (this.authService.isloggedin()) {
-      this.loggedin = true;
-    } else {
-      this.loggedin = false;
-    }
-  }
-  logout() {
-    this.authService.logout();
-    this.router.navigateByUrl('/Login');
-  }
+
+          }
+
+
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);

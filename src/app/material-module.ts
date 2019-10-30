@@ -21,13 +21,16 @@ import {
     MatCardModule,
     MatButtonModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
+    MatNativeDateModule
 } from '@angular/material';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSelectModule} from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -44,7 +47,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
         MatTabsModule,
         MatSelectModule,
         MatInputModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        MatCheckboxModule,
+        MatRadioModule,
+        MatDatepickerModule,
+        MatNativeDateModule
     ],
     exports: [
         MatSidenavModule,
@@ -58,7 +65,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
         MatTabsModule,
         MatSelectModule,
         MatInputModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        MatCheckboxModule,
+        MatRadioModule,
+        MatDatepickerModule,
+        MatNativeDateModule
     ]
 })
 export class MaterialModule {}

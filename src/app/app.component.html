@@ -29,18 +29,13 @@
                   <span class="label">Pokemon Search</span>
                 </a>
               </span>
-              <span>
+              <span>         
                   <a class = "topnav" routerLink="/Login">
                     <mat-icon class="icon">input</mat-icon>
-                    <span class="label">Login</span>
+                    <span class="label">Login/Register</span>
                   </a>
                 </span>
-                <span>         
-                  <a class = "topnav" routerLink="#">
-                    <mat-icon class="icon">input</mat-icon>
-                    <span class="label">Logout</span>
-                  </a>
-                </span>
+
     </mat-toolbar-row>
   </mat-toolbar>
 </nav>
@@ -96,13 +91,7 @@
                 <mat-list-item>
                     <a  routerLink="/Login">
                       <mat-icon>input</mat-icon>
-                      <span >Login</span>
-                    </a>
-                  </mat-list-item>
-                  <mat-list-item>         
-                    <a routerLink="#">
-                      <mat-icon>input</mat-icon>
-                      <span>Logout</span>
+                      <span >Login/Register</span>
                     </a>
                   </mat-list-item>
           </mat-nav-list>
@@ -111,6 +100,7 @@
       <mat-sidenav-content class="content">
           <article class="info">
               <router-outlet></router-outlet>
+              
             </article>
             <div style="grid-area: featured;" class="featured">
                 <h3>Today's featured pokemon!</h3>
@@ -120,6 +110,13 @@
               </div>
               <mat-toolbar class="main-footer" color="primary">
                   <span>Ryan Duffy 2019</span>
+                  <!-- How to display data from a firestore database -->
+                  <!-- <ul>
+                    <li class="text" *ngFor="let item of items | async">
+                      {{item.test}}
+                    </li>
+                  </ul> -->
                 </mat-toolbar>
                   </mat-sidenav-content>
+                  
     </mat-sidenav-container>

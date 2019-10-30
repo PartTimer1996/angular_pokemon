@@ -8,21 +8,22 @@ import { FirebaseauthService } from '../Services/firebaseauth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class NonauthGuard implements CanActivate {
   constructor(private authservice: FirebaseauthService, private router: Router) {}
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> {
-    return this.authservice.user.pipe(
-      take(1),
-      map(user => !!user),
-      tap(loggedin =>
-        {
-          if (!loggedin) {
-            console.log('Router Guard: Access Denied');
-            this.router.navigate(['/login']);
-          }
-        })
-    )
+      return this.authservice.user.pipe(
+        take(1),
+        map(user => !!user),
+        tap(loggedin =>
+          {
+            if (loggedin) {
+              console.log('Router Guard: Already logged in');
+              this.router.navigate(['']);
+            }
+          })
+      )
   }
+  
 }

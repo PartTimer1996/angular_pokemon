@@ -1,12 +1,12 @@
-<form #f="ngForm" novalidate class="form-signin" (ngSubmit)="onSubmit()">
+<form #f="ngForm" novalidate class="form-signin" (ngSubmit)="login(email.value, password.value)">
     <img class="mb-4" src="https://cdn.bulbagarden.net/upload/thumb/2/21/001Bulbasaur.png/250px-001Bulbasaur.png" alt=""
         width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <h1 class="h3 ">Please sign in</h1>
         <div class="form-group"> 
                 <mat-form-field  class="email" >
                         <mat-label>email</mat-label>
                     <input matInput placeholder="rduffy14@example.com"  name="email"
-                    [(ngModel)]="model.email" #email="ngModel" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+                    [(ngModel)]="model.email" #email="ngModel" required  
                     [ngClass]="{'has-success' : email.valid && email.dirty, 'has-danger' : email.invalid && email.dirty}">
                     <div class="invalid-feedback" *ngIf="email.invalid && email.dirty">
                         Enter a valid email
@@ -22,9 +22,12 @@
               </div>
             </mat-form-field>
               </div>
-    <button mat-raised-button type="submit" [disabled]="f.invalid" color="primary">Sign in</button>
-</form>
+              <label for="sign in">New here? Click <a [routerLink]="['/Register']">Here</a> to Register </label>
+     
+    <button mat-raised-button type="submit" [disabled]="f.invalid" color="primary" id="sign-in">Sign in</button>
+    
+</form> 
 <h4 *ngIf="success === false">
     Invalid Username or password, please try again.
 </h4>
-<!-- pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" -->
+ <!-- pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" -->
