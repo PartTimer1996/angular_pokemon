@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../app/_guards/auth.guard';
+import { NonauthGuard } from '../app/_guards/nonauth.guard';
 
 import { HomeComponent } from './home/home.component';
 import { PokemonSearchComponent} from '../app/pokemon-search/pokemon-search.component';
@@ -21,13 +22,13 @@ const routes: Routes = [
   {path: 'ItemSearch', component: ItemSearchComponent, data: { title: 'ItemSearch' }},
   {path: 'Pokemon/:id', component: PokemonDetailsComponent ,
   data: { title: 'Details' }, children: [{path: 'stats', component: PokemonstatsComponent}]},
-  {path: 'Create', component: CreatepokemonComponent , data: { title: 'Create' }},
+  {path: 'Create', component: CreatepokemonComponent, canActivate: [AuthGuard], data: { title: 'Create' }},
   {path: 'stats', component: PokemonstatsComponent , data: { title: 'Stats' }},
   {path: 'FullList', component: PokemonlistComponent, data: { title: 'List' }},
   {path: 'Admin', component: AdminComponent, canActivate: [AuthGuard], data: { title: 'Admin' }},
   {path: 'Dashboard', component: HomeComponent, data: { title: 'Home' }},
-  {path: 'Login', component: LoginComponent, data: { title: 'Login' }},
-  {path: 'Register', component: RegisterComponent, data: { title: 'Register' }},
+  {path: 'Login', component: LoginComponent, canActivate: [NonauthGuard], data: { title: 'Login' }},
+  {path: 'Register', component: RegisterComponent, canActivate: [NonauthGuard],  data: { title: 'Register' }},
   {path: '**', component: HomeComponent}
 ];
 
